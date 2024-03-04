@@ -1,0 +1,19 @@
+.section {
+  display: flex;
+  column-gap: 20px;
+}
+.back_link {
+  text-decoration: none;
+  display: inline-block;
+  padding: 4px 8px;
+  color: black;
+  border-radius: 6px;
+  background-color: aliceblue;
+}
+.back_link:hover {
+  color: red;
+}
+.add_info {
+  border-top: 2px solid rgb(182, 179, 179);
+  border-bottom: 2px solid rgb(182, 179, 179);
+}
