@@ -27,7 +27,7 @@ const Cast = () => {
   return (
     <div>
       {isLoading && <Loader />}
-      {cast ? (
+      {cast.length > 0 ? (
         <ul className={style.cast_list}>
           {cast.map(actor => (
             <li className={style.cast_list_item} key={actor.id}>
@@ -47,9 +47,7 @@ const Cast = () => {
           ))}
         </ul>
       ) : (
-        <div>
-          <div>We don't have any reviews for this movie</div>
-        </div>
+        <div>We don't have any casts for this movie</div>
       )}
     </div>
   );

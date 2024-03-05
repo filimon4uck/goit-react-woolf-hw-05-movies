@@ -13,7 +13,6 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const [isEmptylist, setIsEmptyList] = useState(movies.length > 0);
 
   useEffect(() => {
     if (searchQuery === '') {
@@ -28,7 +27,6 @@ const MoviesPage = () => {
       searchMovie();
       setIsLoading(true);
       setError('');
-      setIsEmptyList(true);
     } catch (error) {
       setError(error);
       console.log(error);
@@ -48,10 +46,11 @@ const MoviesPage = () => {
     <main>
       {isLoading && <Loader />}
       <SearchForm onSubmit={handleFormSubmit} />
-      {!isEmptylist && (
+      {movies.length > 0 ? (
+        <MoviesList movies={movies} />
+      ) : (
         <div>There are no movies with this request. Please, try again... </div>
       )}
-      {movies && <MoviesList movies={movies} />}
       {error && <div>{error}</div>}
     </main>
   );
