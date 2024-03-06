@@ -26,7 +26,7 @@ const HomePage = () => {
     <div>
       <h2>Trending today</h2>
       {isLoading && <Loader />}
-      {movies && <MoviesList movies={movies} />}
+      {movies.length > 0 && <MoviesList movies={movies} />}
       {error && <h3>{'Problem with download'}</h3>}
     </div>
   );

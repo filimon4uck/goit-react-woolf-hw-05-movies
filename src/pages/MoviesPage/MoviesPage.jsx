@@ -7,17 +7,13 @@ import MoviesList from 'components/MoviesList/MoviesList';
 import Loader from 'components/Loader/Loader';
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState(
-    searchParams.get('query') || ''
-  );
+  const searchQuery = searchParams.get('query');
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    if (searchQuery === '') {
-      return;
-    }
+    if (!searchQuery) return;
     const searchMovie = async () => {
       const movies = await fetchSeachMovie(searchQuery);
       setMovies(movies);
@@ -40,7 +36,6 @@ const MoviesPage = () => {
       return;
     }
     setSearchParams({ query: newQuery });
-    setSearchQuery(newQuery);
   };
   return (
     <main>

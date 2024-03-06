@@ -7,7 +7,7 @@ const MoviesList = ({ movies }) => {
   return (
     <>
       <ul className={style.movies_list}>
-        {movies?.map(({ id, title, poster_path }) => (
+        {movies.map(({ id, title, poster_path }) => (
           <li key={id}>
             <Link
               className={style.list_card}
